@@ -1,3 +1,5 @@
+import './constants'
+
 let myImage = document.querySelector("img");
 let xhttp = {};
 let postsList = document.getElementById("posts");
@@ -30,7 +32,7 @@ function getPosts(page, limit) {
     }
     if (page === undefined) page = 1;
     if (limit === undefined) limit = 10;
-    xhttp.open("GET", "http://localhost:8063/wp-posts?limit=" + limit + "&page=" + page, true);
+    xhttp.open("GET", apiPath + "/wp-posts?limit=" + limit + "&page=" + page, true);
     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset-UTF-8');
     xhttp.send();
 }

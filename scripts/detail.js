@@ -1,3 +1,5 @@
+import './constants'
+
 let id = window.location.search.split("=")[1];
 let content = document.querySelector("body");
 
@@ -10,13 +12,13 @@ if (window.XMLHttpRequest) {
 
 // 请求接口
 {
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         let posts = JSON.parse(xhttp.responseText);
         if (posts.code === 0) {
             content.innerHTML = posts.data.postContent;
         }
     }
-    xhttp.open("GET", "http://localhost:8063/wp-posts/detail?id=" + id, true);
+    xhttp.open("GET", apiPath + "/wp-posts/detail?id=" + id, true);
     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset-UTF-8');
     xhttp.send();
 }
