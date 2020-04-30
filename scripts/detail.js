@@ -1,24 +1,18 @@
-import './constants'
+let apiPath = getHost();
 
 let id = window.location.search.split("=")[1];
 let content = document.querySelector("body");
 
-var xhttp = {};
-if (window.XMLHttpRequest) {
-    xhttp = new XMLHttpRequest();
-} else {
-    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-}
-
 // 请求接口
-{
-    xhttp.onreadystatechange = function () {
-        let posts = JSON.parse(xhttp.responseText);
-        if (posts.code === 0) {
-            content.innerHTML = posts.data.postContent;
-        }
+let detailUrl = apiPath + "/wp-posts/detail?id=" + id;
+
+get(detailUrl, true, displayContent);
+
+function displayContent(posts) {
+    if (posts.code === invokeSuccessCode) {
+        content.innerHTML = posts.data.postContent;
     }
-    xhttp.open("GET", apiPath + "/wp-posts/detail?id=" + id, true);
-    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset-UTF-8');
-    xhttp.send();
+    else {
+        // 接口调用失败，弹出信息
+    }
 }
