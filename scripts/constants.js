@@ -21,6 +21,22 @@ function get(url, async, successCallback) {
     }
 }
 
+function post(url, body, async, successCallback) {
+    // XMLHttpRequest对象
+    var xhttp = getXMLHttpRequest();
+    xhttp.open("POST", url, async);
+    //Send the proper header information along with the request
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhttp.send(body);
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState === 4 && xhttp.status === 200) {
+            let posts = JSON.parse(xhttp.responseText);
+            successCallback(posts);
+        }
+    }
+}
+
 function getXMLHttpRequest() {
     var xhttp = {};
     if (window.XMLHttpRequest) {

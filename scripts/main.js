@@ -47,3 +47,7 @@ function getPostDetail(id) {
 //         myImage.setAttribute("src", "./images/sun.jpg");
 //     }
 // }
+
+function jumpWriteBlogsPage() {
+    window.location.href = "./new.html";
+}
