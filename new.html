@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>My Detail Page</title>
-    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./styles/new-post.css" rel="stylesheet">
     <link href="https://fonts.font.im/css?family=Open+Sans" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="rawData">
         <form>
             <span class="postTag">标题：</span>
-            <input type="text" class="titleInput" id="titleId">
+            <input type="text" class="titleInput" id="titleId"> <!--通过name作为表单提交的json的属性名-->
             <span class="postTag">正文：</span>
             <textarea type="text" class="contentInput" id="contentId"></textarea>
         </form>
     </div>
+    <button id="savePost">保存</button>
     <div class="transformData" id="transformData">
         
     </div>
@@ -23,3 +24,10 @@
 <script src="./scripts/constants.js"></script>
 <script src="./scripts/new.js"></script>
 </html>
+
+<!--
+# 一级标题
+## 二级标题
+### 三级标题
+这是一篇测试开发的blog，我想让向下两个框框并列展示，但是考虑到框框的展示和显示设备问题，所以我开始缩小这块的代码，本文本框可以放大和缩小
+-->

@@ -1,0 +1,77 @@
+p {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+h1 {
+    margin: 0;
+    padding: 20px 0;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Open Sans' sans-serif;
+    background-color: #00539F;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #FF9500;
+    padding: 0 20px 20px 20px;
+    border: 5px solid black;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 30em;
+    height: 30em;
+}
+
+#index {
+    text-align: right;
+}
+
+a {
+    cursor: pointer;
+}
+
+div.rawData {
+    margin-top: 2em;
+}
+
+div.transformData {
+    margin-top: 2em;
+    border: 1px solid gray;
+    min-height: 8em;
+    height: auto;
+}
+
+input.titleInput {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+textarea.contentInput {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    min-height: 8em;
+    resize: vertical; /*禁止横向拖动导致出现问题*/
+}
+
+span.postTag {
+    font-size: medium;
+    font-family: 'Open Sans' sans-serif;
+}

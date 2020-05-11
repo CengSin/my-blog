@@ -26,7 +26,7 @@ function post(url, body, async, successCallback) {
     var xhttp = getXMLHttpRequest();
     xhttp.open("POST", url, async);
     //Send the proper header information along with the request
-    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhttp.setRequestHeader("Content-Type", "application/json");
 
     xhttp.send(body);
     xhttp.onreadystatechange = function() {
