@@ -47,3 +47,13 @@ function getXMLHttpRequest() {
     }
     return xhttp;
 }
+
+// 监听是否离开和进入页面
+
+window.onfocus = function() {
+    document.title = "欢迎光临CengSin的手工作坊";
+};
+
+window.onblur = function() {
+    document.title = "(〃￣︶￣)人(￣︶￣〃)等你哦……";
+};
