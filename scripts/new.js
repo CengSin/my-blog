@@ -4,9 +4,37 @@ let submitBtn = document.getElementById("savePost");
 let titleEl = document.getElementById("titleId");
 let apiPath = getHost();
 
-// 进入页面即时进行转换
+function comebackIndex() {
+    window.location.href = "./index.html";
+}
+
+function sendAuthenticationEmail() {
+    // 调用后端发送验证邮件接口，并且拿到后端校验
+    get(apiPath + "/sendEmail", true, function (responseBody) {
+        if (responseBody.code !== invokeSuccessCode) {
+            alert('验证邮件发送失败，将返回首页');
+            comebackIndex();
+        }
+    })
+}
+
+function validInputValue(inputValue) {
+    // 调用后端发送验证邮件接口，并且拿到后端校验
+    get(apiPath + "/sendEmail/valid?captcha=" + inputValue, true, function (responseBody) {
+        if (responseBody.code !== invokeSuccessCode) {
+            alert("这不是你该来的地方！");
+            comebackIndex();
+        } else if (responseBody.code !== invokeSuccessCode) {
+            transformMk();
+        }
+    })
+}
+
 {
-    transformMk();
+    // 进入页面首先验证，之后进行即时进行转换
+    sendAuthenticationEmail();
+    var inputValue = prompt("暗号：");
+    validInputValue(inputValue)
 }
 
 // 事件区
@@ -53,7 +81,7 @@ submitBtn.onclick = function () {
     let createPostUrl = apiPath + "/wp-posts";
     post(createPostUrl, JSON.stringify(postInfo), true, function () {
         // 跳转回详情页进行查询
-        window.location.href = "./index.html";
+        comebackIndex();
     });
 }
 
